@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+
+    <type name="Magento\Customer\Api\CustomerRepositoryInterface">
+        <plugin name="customer_sync_extension_attribute"
+                type="Pixafy\CustomerSync\Plugin\Customer\AddEligibleForSyncAttributePlugin" sortOrder="10" disabled="false" />
+    </type>
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="customers_List" xsi:type="object">Pixafy\CustomerSync\Console\Command\CustomerListCommand</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
+
